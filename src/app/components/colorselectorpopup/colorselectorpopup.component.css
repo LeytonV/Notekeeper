@@ -1,0 +1,22 @@
+.popup
+{
+    width: min-content;
+}
+
+.windowLabel
+{
+    font-family: "Poppins";
+    color: var(--whiteText);
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.colorsContainer
+{
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: auto auto auto auto;
+    grid-auto-columns: auto;
+
+    gap:5px;
+}

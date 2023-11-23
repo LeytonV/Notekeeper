@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NoteService } from './services/noteservice/note.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Notekeeper';
+
+  constructor(public noteService:NoteService)
+  {
+
+  }
+
+  fetchNotesFromLocalStorage()
+  {
+    this.noteService.fetchNoteData();
+  }
 }

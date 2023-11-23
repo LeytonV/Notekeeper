@@ -1,0 +1,26 @@
+
+<div *ngIf="colorHex == ''; then NoColorButton else ColorButton"></div>
+<ng-template #ColorButton>
+    <button class="colorOptionContainer" [style]="'background-color:' + colorHex + ';'" (click)="colorIsSelected ? onDeselect.emit() : onSelect.emit(colorHex)">
+        <div class="selectedOverlay" *ngIf="colorIsSelected">
+            <img src="assets/images/checkmark.png" alt="" class="selectedCheck">
+        </div>
+    </button>
+</ng-template>
+
+<ng-template #NoColorButton>
+    <button class="colorOptionContainer" style="background-color: transparent;" (click)="colorIsSelected ? onDeselect.emit() : onSelect.emit(colorHex)">
+        <div *ngIf="colorIsSelected; then SelectedIcon else NoneIcon"></div>
+        <ng-template #SelectedIcon>
+            <div class="selectedOverlay">
+                <img src="assets/images/checkmark.png" alt="" class="selectedCheck">
+            </div>
+        </ng-template>
+
+        <ng-template #NoneIcon>
+            <div class="selectedOverlay">
+                <img src="assets/images/no.png" alt="" class="selectedCheck">
+            </div>
+        </ng-template>
+    </button>
+</ng-template>

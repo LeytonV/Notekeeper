@@ -1,0 +1,39 @@
+.colorOptionContainer
+{
+    --size: 50px;
+    width: var(--size);
+    height: var(--size);
+
+    border-radius: 2000000px;
+
+    outline:none;
+    border:none;
+    padding:0;
+    margin:0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.colorOptionContainer:hover
+{
+    outline:2px solid var(--whiteText);
+}
+
+.selectedOverlay
+{
+    width:100%;
+    height:100%;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 100%;
+    background-color: #00000050;
+}
+
+.selectedCheck
+{
+    --imageSize: 20px;
+    width: var(--imageSize);
+    height: var(--imageSize);
+    justify-self: center;
+    align-self: center;
+}

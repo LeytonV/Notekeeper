@@ -1,0 +1,7 @@
+
+<div class="contentContainer">
+    <p class="sectionLabel">archived</p>
+    <div class="noteListContainer">
+        <app-note *ngFor="let note of getArchivedNotes(); let i = index" [referenceNote]="note" [noteIndex]="i" (onRemove)="trashNote($event)" (onArchive)="unarchiveNote($event)"></app-note>
+    </div>
+</div>

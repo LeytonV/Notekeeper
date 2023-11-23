@@ -1,0 +1,35 @@
+<div class="contentContainer">
+    <div class="addNoteContainer">
+        <input type="text" [(ngModel)]="newNoteName" class="addNoteName" value="" placeholder="Create a note..." (keydown)="startTakingNote()">
+        <input type="text" [(ngModel)]="newNoteDescription" class="addNoteDescription" value="" placeholder="Note Description" *ngIf="isTakingNote">
+        <div class="addNoteOptions" *ngIf="isTakingNote">
+            <button class="redPromptButton" (click)="cancelNote()">Cancel</button>
+            <button class="createNote" (click)="createNewNote()">Create</button>
+        </div>
+    </div>
+
+    <div *ngIf="pinnedNotes.length > 0">
+        <div class="noteSectionContainer">
+            <p class="sectionLabel">pinned</p>
+            <div class="noteListContainer">
+                <app-note *ngFor="let note of pinnedNotes; let i = index" [referenceNote]="note" [noteIndex]="getNoteIndex(note)" (onOpen)="openNote($event)" (onRemove)="removeNote($event)" (onArchive)="archiveNote($event)" (onSelectColor)="showNoteColorPopup($event)"></app-note>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="regularNotes.length > 0; then noteList else noNotes"></div>
+    <ng-template #noteList>
+        <div class="noteSectionContainer">
+            <p class="sectionLabel">notes</p>
+            <div class="noteListContainer">
+                <app-note *ngFor="let note of regularNotes; let i = index" [referenceNote]="note" [noteIndex]="getNoteIndex(note)" (onOpen)="openNote($event)" (onRemove)="removeNote($event)"  (onArchive)="archiveNote($event)" (onSelectColor)="showNoteColorPopup($event)"></app-note>
+            </div>
+        </div>
+    </ng-template>
+    <ng-template #noNotes>
+        <p id="NoNotes">No Notes!</p>
+    </ng-template>
+    <app-noteview *ngIf="viewingNoteIndex != -1" [referenceNoteIndex]="viewingNoteIndex" (onUpdateNote)="updateNote($event)" (onClose)="closeNoteView()"></app-noteview>
+    
+    <app-colorselectorpopup *ngIf="choosingColorNoteIndex != -1" [referencedNote]="noteservice.getNoteAtIndex(choosingColorNoteIndex)" (onSelectColor)="changeNoteColor($event)"></app-colorselectorpopup>
+</div>

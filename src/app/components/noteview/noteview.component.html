@@ -1,0 +1,33 @@
+<div class="noteViewBG">
+    <div class="noteViewContainer">
+        <div class="noteViewHeader">
+
+        </div>
+        <input type="text" class="textInput nameInput" [(ngModel)]="noteCopy.name" placeholder="Note name..." (input)="updateNote()">
+        <textarea class="textInput descriptionInput" [(ngModel)]="noteCopy.desc" (input)="updateNote()"></textarea>
+        <div class="noteViewFooter">
+            <div class="footerContainer">
+                <button class="footerButton"><img src="assets/images/bin.png" alt=""></button>
+                <div *ngIf="this.currentNote.pinned == false; then pinned; else pin"></div>
+                    <ng-template #pin>
+                    <button class="footerButton"*ngIf="this.currentNote.pinned == false"><img src="assets/images/pin.png" alt=""></button>
+                </ng-template>
+                <ng-template #pinned>
+                    <button class="footerButton"*ngIf="this.currentNote.pinned == true"><img src="assets/images/pinned.png" alt=""></button>
+                </ng-template>
+                <button class="footerButton" (click)="openImageAttachWindow()"><img src="assets/images/addImage.png" alt=""></button>
+            </div>
+            <button class="footerCloseButton" (click)="closeNote()"><p>Close</p></button>
+        </div>
+    </div>
+
+    <div class="noteViewBG" *ngIf="isAttachingImage">
+        <div class="classicBoxContainer attachImageContainer">
+            <p class="fieldLabel">Image URL:</p>
+            <input type="text" class="attachImageURL" [(ngModel)]="attachImageURL">
+            <div class="attachImageButtonFlex">
+                <button class="footerCloseButton" (click)="attachImage()"><p>Add</p></button>
+            </div>
+        </div>
+    </div>
+</div>

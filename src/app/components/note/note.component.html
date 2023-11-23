@@ -1,0 +1,16 @@
+<div (click)="onClickOpen()" [style]="'background-color: ' + referenceNote.colorHex + '60;'">
+    <img src="{{referenceNote.imageURL}}" alt="" class="noteImage" *ngIf="referenceNote.imageURL.length != 0">
+    <p class="noteName">{{referenceNote.name}}</p>
+    <p class="noteDescription">{{referenceNote.desc}}</p>
+    <div class="noteFooter">
+        <button (click)="onClickRemove()" class="tooltipButton" [attr.tooltip]="'Trash Note'"><img src="assets/images/bin.png" alt=""></button>
+        <div *ngIf="this.noteIsTrashed == false then NoteControls"></div>
+        <ng-template #NoteControls>
+            <button *ngIf="!this.referenceNote.archived"  (click)="onClickPin()" class="tooltipButton" [attr.tooltip]="this.referenceNote.pinned ? 'Unpin note' : 'Pin Note'"><img [src]="this.referenceNote.pinned ? 'assets/images/pinned.png' : 'assets/images/pin.png'" alt=""></button>
+            <button (click)="onClickArchive()" class="tooltipButton" [attr.tooltip]="this.referenceNote.archived ? 'Unarchive note' : 'Archive note'"><img [src]="this.referenceNote.archived ? 'assets/images/archive.png' : 'assets/images/unarchive.png'" alt=""></button>
+            <button (click)="onSelectColor.emit(noteIndex)" class="tooltipButton" tooltip="Change note color"><img src="assets/images/colorNote.png" alt=""></button>
+        </ng-template>
+
+        <button *ngIf="this.noteIsTrashed == true" (click)="onClickUntrash()" class="tooltipButton" tooltip="Remove from Trash"><img src="assets/images/untrash.png" alt=""></button>
+    </div>
+</div>  

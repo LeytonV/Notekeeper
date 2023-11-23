@@ -1,0 +1,7 @@
+<div class="classicBoxContainer popup">
+    <p class="windowLabel">Choose a color for {{referencedNote.name}}</p>
+    <div class="colorsContainer">
+        <app-colorselectoroption *ngFor="let color of this.colors; let i = index" [colorHex]="color" [colorIsSelected]="referencedNote.colorHex == color" (onSelect)="onSelectColor.emit($event)"></app-colorselectoroption>
+        <app-colorselectoroption [colorHex]="''" [colorIsSelected]="referencedNote.colorHex == ''" (onSelect)="onSelectColor.emit($event)" ></app-colorselectoroption>
+    </div>
+</div>

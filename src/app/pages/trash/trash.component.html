@@ -1,0 +1,17 @@
+<div class="contentContainer">
+    <p class="trashedNotesWarning">Trashed notes are removed after 7 days</p>
+    <div class="noteListContainer">
+        <app-note *ngFor="let note of getTrashedNotes(); let i = index" [referenceNote]="note" [noteIndex]="i" (onRemove)="showDestroyNotePrompt($event)" (onUntrash)="removeNoteFromTrash($event)"></app-note>
+    </div>
+</div>
+
+
+<div class="noteDestroyPrompt" *ngIf="destroyNotePopup">
+    <div class="classicBoxContainer promptContainer">
+        <p class="fieldLabel">Delete this note forever?</p>
+        <div class="promptButtonContainer">
+            <button class="redPromptButton" (click)="hideDestroyNotePrompt()">Cancel</button>
+            <button class="promptMainButton" (click)="destroyNote()">Yes</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+.notificationScreen
+{
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right:0;
+    pointer-events: none;
+}
+
+.notification
+{
+    position: absolute;
+    background-color: #25252d;
+    left:50%;
+    bottom:-50px;
+    opacity: 0;
+    padding: 0;
+    margin:0;
+
+    font-family: "Poppins";
+    color:var(--whiteText);
+    font-size: 16px;
+
+    --transitionTime: 0.2s;
+    transition: bottom var(--transitionTime) ease-in-out, opacity var(--transitionTime) ease-in-out;
+    border-radius: 5px;
+    box-shadow: 0px 3px 4px #00000090;
+}
+
+.notification p
+{
+    margin:15px;
+}
+
+.notification.show
+{
+    bottom: 10px;
+    opacity: 1;
+}

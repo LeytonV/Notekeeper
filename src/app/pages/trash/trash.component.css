@@ -1,0 +1,38 @@
+.noteListContainer
+{
+    display: grid;
+    gap:20px;
+    --noteWidth: 250px;
+    grid-template-columns: repeat(auto-fit, minmax(var(--noteWidth), var(--noteWidth)));
+    justify-content: left;
+}
+
+.promptContainer
+{
+    margin: auto;
+}
+
+.noteDestroyPrompt
+{
+    position:fixed;
+    width:100vw;
+    height:100vh;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background-color: #00000050;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.trashedNotesWarning
+{
+    font-family: "Poppins";
+    color:var(--whiteText);
+    font-size: 22px;
+    text-align: center;
+
+}

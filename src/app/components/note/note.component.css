@@ -1,0 +1,101 @@
+:host
+{
+
+    width:var(--noteWidth);
+    height: fit-content;
+
+    border-radius: 8px;
+    --notePadding: 5px;
+    --noteInlinePadding: 8px;
+    outline: 1px solid var(--accentLines);
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: none;
+    transition: box-shadow .1s linear;
+    transition: background-color 0.2s linear;
+}
+
+:host:hover
+{
+    box-shadow: 0px 5px 5px #00000050;
+}
+
+.noteName
+{
+    margin:0;
+    padding-top:var(--notePadding);
+    padding-inline: var(--noteInlinePadding);
+    font-family: "Poppins";
+    font-weight: 500;
+    font-size:20px;
+    color:var(--whiteText);
+}
+
+.noteDescription
+{
+    margin:0;
+    font-family: "Poppins";
+    padding: var(--noteInlinePadding);
+
+    font-size: 16px;
+    color:var(--whiteText);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-height: 200px;
+}
+
+.noteFooter
+{
+    height:30px;
+    display: grid;
+    grid-auto-columns: min-content;
+    grid-template-rows: 100%;
+    grid-auto-flow: column;
+    padding-inline:var(--notePadding);
+    padding-bottom:var(--notePadding);
+}
+
+.noteFooter button
+{
+    height:100%;
+    aspect-ratio: 1 / 1;
+    outline:none;
+    margin:0;
+    outline:none;
+    border:none;
+    padding:7px;
+    background-color: transparent;
+    cursor:pointer;
+    border-radius: 200000px;
+    transition: background-color linear 0.1s
+}
+
+:host:hover .noteFooter button:hover
+{
+    background-color: rgba(255, 255, 255, 0.11);
+}
+
+.noteFooter button img
+{
+    height:100%;
+    margin:0;
+    padding:0;
+    opacity:0%;
+    transition: opacity linear 0.1s;
+}
+
+:host:hover .noteFooter button img
+{
+    height:100%;
+    width:100%;
+    margin:0;
+    padding:0;
+    opacity:60%;
+}
+
+.noteImage
+{
+    width:100%;
+    max-height: 200px;
+    object-fit: cover;
+}

@@ -1,0 +1,58 @@
+.navbar
+{
+    height:50px;
+    background-color: transparent;
+    border-bottom: 1px solid var(--accentLines);
+    display: flex;
+    padding:10px;
+    justify-items: center;
+    align-items:center;
+    gap:10px;
+    overflow: hidden;
+}
+
+.navTabs
+{
+    gap:5px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    height:fit-content;
+}
+
+.logo
+{
+    width:fit-content;
+    margin:0;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+    margin-inline:15px;
+}
+
+.navTab
+{
+    border-radius: 200000px;
+    width:fit-content;
+    min-width:75px;
+    height:40px;
+    border:none;
+    outline:none;
+    background-color: transparent;
+    
+    cursor: pointer;
+    font-size:16px;
+    font-family: 'Poppins', sans-serif;
+    color:white;
+    padding-inline:15px;
+}
+
+.navTab:not(.active):hover
+{
+    background-color: var(--tabHover);
+}
+
+.navTab.active
+{
+    background-color: var(--keyColor);
+}
