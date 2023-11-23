@@ -20,7 +20,7 @@
     <div *ngIf="regularNotes.length > 0; then noteList else noNotes"></div>
     <ng-template #noteList>
         <div class="noteSectionContainer">
-            <p class="sectionLabel">notes</p>
+            <p class="sectionLabel">note</p>
             <div class="noteListContainer">
                 <app-note *ngFor="let note of regularNotes; let i = index" [referenceNote]="note" [noteIndex]="getNoteIndex(note)" (onOpen)="openNote($event)" (onRemove)="removeNote($event)"  (onArchive)="archiveNote($event)" (onSelectColor)="showNoteColorPopup($event)"></app-note>
             </div>
